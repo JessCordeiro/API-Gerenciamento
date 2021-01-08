@@ -1,14 +1,16 @@
 package Projeto.Personapi.services;
 
 import lombok.AllArgsConstructor;
-import one.digitalinnovation.personapi.dto.mapper.PersonMapper;
-import one.digitalinnovation.personapi.dto.request.PersonDTO;
-import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
-import one.digitalinnovation.personapi.entities.Person;
-import one.digitalinnovation.personapi.exception.PersonNotFoundException;
-import one.digitalinnovation.personapi.repositories.PersonRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import Projeto.Personapi.dto.mapper.PersonMapper;
+import Projeto.Personapi.dto.request.PersonDTO;
+import Projeto.Personapi.dto.response.MessageResponseDTO;
+import Projeto.Personapi.entity.Person;
+import Projeto.Personapi.exception.PersonNotFoundException;
+import Projeto.Personapi.repository.PersonRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
