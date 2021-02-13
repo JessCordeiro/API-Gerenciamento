@@ -41,4 +41,11 @@ public class Person {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Phone> phones = new ArrayList<>();
+
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

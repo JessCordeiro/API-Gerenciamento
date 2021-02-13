@@ -4,6 +4,7 @@ package Projeto.Personapi.dto.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import Projeto.Personapi.dto.request.PersonDTO;
 import Projeto.Personapi.entity.Person;
 
 @Mapper(componentModel = "spring")

@@ -1,6 +1,6 @@
 package Projeto.Personapi.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,10 +24,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/people")
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PersonController {
 
-    private final PersonService personService;
+	@Autowired
+	private final PersonService personService = new PersonService();
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

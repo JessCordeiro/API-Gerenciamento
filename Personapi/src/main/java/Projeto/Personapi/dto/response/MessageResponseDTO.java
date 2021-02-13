@@ -8,4 +8,9 @@ import lombok.Data;
 public class MessageResponseDTO {
 
     private String message;
+
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

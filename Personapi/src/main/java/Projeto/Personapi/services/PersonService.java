@@ -1,6 +1,7 @@
 package Projeto.Personapi.services;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,18 +17,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PersonService {
 
-    private final PersonRepository personRepository;
+    private final PersonRepository personRepository = null;
 
-    private final PersonMapper personMapper;
+    private final PersonMapper personMapper = null;
 
     public MessageResponseDTO create(PersonDTO personDTO) {
         Person person = personMapper.toModel(personDTO);
         Person savedPerson = personRepository.save(person);
 
-        MessageResponseDTO messageResponse = createMessageResponse("Person successfully created with ID ", savedPerson.getId());
+        MessageResponseDTO messageResponse = (MessageResponseDTO) createMessageResponse("Person successfully created with ID ", savedPerson.getId());
 
         return messageResponse;
     }
@@ -53,7 +54,7 @@ public class PersonService {
         Person updatedPerson = personMapper.toModel(personDTO);
         Person savedPerson = personRepository.save(updatedPerson);
 
-        MessageResponseDTO messageResponse = createMessageResponse("Person successfully updated with ID ", savedPerson.getId());
+        MessageResponseDTO messageResponse = (MessageResponseDTO) createMessageResponse("Person successfully updated with ID ", savedPerson.getId());
 
         return messageResponse;
     }
@@ -65,9 +66,11 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
-    private MessageResponseDTO createMessageResponse(String s, Long id2) {
-        return MessageResponseDTO.builder()
+    private Object createMessageResponse(String s, Long id2) {
+    	return ((Object) MessageResponseDTO.builder())
                 .message(s + id2)
                 .build();
+
     }
+	
 }
