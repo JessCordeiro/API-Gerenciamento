@@ -7,10 +7,15 @@ import lombok.Data;
 @Builder
 public class MessageResponseDTO {
 
-    private String message;
+    @SuppressWarnings("unused")
+	private String message;
 
 	public static Object builder() {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	} 
+	
+
+
+	
 }

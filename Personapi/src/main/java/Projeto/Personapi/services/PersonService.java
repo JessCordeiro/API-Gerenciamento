@@ -3,6 +3,7 @@ package Projeto.Personapi.services;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +15,18 @@ import Projeto.Personapi.exception.PersonNotFoundException;
 import Projeto.Personapi.repository.PersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class PersonService {
 
-    private final PersonRepository personRepository = null;
+	private final PersonRepository personRepository = null;
 
-    private final PersonMapper personMapper = null;
+	private final PersonMapper personMapper = null;
+	
+	
 
     public MessageResponseDTO create(PersonDTO personDTO) {
         Person person = personMapper.toModel(personDTO);
@@ -40,12 +44,7 @@ public class PersonService {
         return personMapper.toDTO(person);
     }
 
-    public List<PersonDTO> listAll() {
-        List<Person> people = personRepository.findAll();
-        return people.stream()
-                .map(personMapper::toDTO)
-                .collect(Collectors.toList());
-    }
+    
 
     public MessageResponseDTO update(Long id, PersonDTO personDTO) throws PersonNotFoundException {
         personRepository.findById(id)
@@ -67,10 +66,7 @@ public class PersonService {
     }
 
     private Object createMessageResponse(String s, Long id2) {
-    	return ((Object) MessageResponseDTO.builder())
-                .message(s + id2)
-                .build();
-
+        return MessageResponseDTO.builder();
+              
     }
-	
 }
